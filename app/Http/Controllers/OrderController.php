@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -14,9 +13,9 @@ class OrderController extends Controller
         $viewData = [];
         $viewData['title'] = 'Orders - Plant Shop';
         $viewData['subtitle'] = 'List of Orders';
-        $viewData['orders'] = '';        
+        $viewData['orders'] = '';
 
-        return view('order.index') -> with('viewData', $viewData);
+        return view('order.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
@@ -27,7 +26,7 @@ class OrderController extends Controller
         $viewData['subtitle'] = ''.' - Order Information';
         $viewData['order'] = '';
 
-        return view('product.show') -> with('viewData', $viewData);
+        return view('product.show')->with('viewData', $viewData);
     }
 
     public function create(): View
@@ -37,7 +36,8 @@ class OrderController extends Controller
         $viewData['title'] = 'Orders - Plant Shop';
         $viewData['subtitle'] = 'Create Order';
         $viewData['order'] = '';
-        return view('order.create') -> with('viewData', $viewData);
+
+        return view('order.create')->with('viewData', $viewData);
     }
 
     public function save(): \Illuminate\Http\RedirectResponse

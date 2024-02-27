@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <th scope="row">Date</th>
-            <td>{{ $viewData['order']['date'] }}</td>
+            <td>{{ $viewData['order']['created_at'] }}</td>
         </tr>
         <tr>
             <th scope="row">Price</th>
