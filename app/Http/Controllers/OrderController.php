@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -11,9 +12,10 @@ class OrderController extends Controller
         // show all the orders
 
         $viewData = [];
+
         $viewData['title'] = 'Orders - Plant Shop';
         $viewData['subtitle'] = 'List of Orders';
-        $viewData['orders'] = '';
+        $viewData['orders'] = Order::all();
 
         return view('order.index')->with('viewData', $viewData);
     }
@@ -21,21 +23,24 @@ class OrderController extends Controller
     public function show(string $id): View
     {
         // show one order
+        
         $viewData = [];
-        $viewData['title'] = ''.' - Plant Shop';
-        $viewData['subtitle'] = ''.' - Order Information';
-        $viewData['order'] = '';
+        $order = Order::findOrFail($id);
 
-        return view('product.show')->with('viewData', $viewData);
+        $viewData['title'] = 'Order '.$order->getId().' - Plant Shop';
+        $viewData['subtitle'] = 'Order from '.$order->getCreated_at().' - Information';
+        $viewData['order'] = $order;
+
+        return view('order.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         // create an order
+
         $viewData = [];
         $viewData['title'] = 'Orders - Plant Shop';
         $viewData['subtitle'] = 'Create Order';
-        $viewData['order'] = '';
 
         return view('order.create')->with('viewData', $viewData);
     }

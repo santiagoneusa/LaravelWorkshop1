@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('creditCard');
             $table->integer('price');
-            $table->enum('status', (['Complete', 'Sent', 'Delivered']))->default('Complete');
+            $table->enum('status', (['Completed', 'Sent', 'Delivered']))->default('Completed');
             $table->timestamps();
         });
     }

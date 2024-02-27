@@ -13,8 +13,8 @@
     @foreach ($viewData['orders'] as $order)
     <tbody>
         <tr>
-        <th scope="row"><a href="{{ route('order.show', ['id' => $order['id']]) }}">{{ $order['created_at'] }}</a></th>
-        <td>Mark</td>
+        <th scope="row"><a href="{{ route('order.show', ['id' => $order['id']]) }}">{{ $order['id'] }}</a></th>
+        <td>{{ $order['created_at'] }}</td>
         </tr>
     </tbody>
     @endforeach

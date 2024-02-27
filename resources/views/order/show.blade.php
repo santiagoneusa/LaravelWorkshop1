@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', $viewData['title'])
 @section('subtitle', $viewData['subtitle'])
 @section('content')
@@ -29,11 +29,11 @@
         </tr>
         <tr>
             <th scope="row">Price</th>
-            <td>{{ $viewData['order']['Price'] }}</td>
+            <td>{{ $viewData['order']['price'] }}</td>
         </tr>
         <tr>
             <th scope="row">Status</th>
-            <td>{{ $viewData['order']['Status'] }}</td>
+            <td>{{ $viewData['order']['status'] }}</td>
         </tr>
 
     </tbody>

@@ -76,18 +76,8 @@ class Order extends Model
         return $this->attributes['created_at'];
     }
 
-    public function setCreated_at(string $created_at): void
-    {
-        $this->attributes['created_at'] = $created_at;
-    }
-
     public function getUpdated_at(): string
     {
         return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt(string $updated_at): void
-    {
-        $this->attributes['updated_at'] = $updated_at;
     }
 }
