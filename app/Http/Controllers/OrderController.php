@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -31,14 +32,18 @@ class OrderController extends Controller
 
     public function create(): View
     {
-        // create a product
-        return view('');
+        // create an order
+        $viewData = [];
+        $viewData['title'] = 'Orders - Plant Shop';
+        $viewData['subtitle'] = 'Create Order';
+        $viewData['order'] = '';
+        return view('order.create') -> with('viewData', $viewData);
     }
 
-    public function save(): View
+    public function save(): \Illuminate\Http\RedirectResponse
     {
-
-        return view('');
+        // save de product and redirect the user to the homepage
+        return redirect()->route('order.index');
     }
 
     public function delete(): View
