@@ -1,0 +1,26 @@
+    -- Welcome to the Plant Shop --
+
+** Requirements **
+
+| Software          | Version                  |
+|-------------------|--------------------------|
+| PHP               | 8.2.12                   |
+| Zend Engine       | v4.2.12                  |
+| MySQL/MariaDB     | Ver 15.1 Distrib 10.4.32 |
+| Apache Server     | 2.4.58                   |
+
+
+** Usage **
+
+To use this web application follow the instructions bellow:
+
+1. Run the migrations to create the database and tables. Run this command in the project directory:
+    php artisan migrate
+
+2. Then, to create orders in the database run the following command in the project directory:
+    php artisan db:seed
+
+3. Finally, you can run the following command:
+    php artisan serve
+
+4. Open in a browser the URL displayed in the terminal.
