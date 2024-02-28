@@ -68,7 +68,7 @@ class OrderController extends Controller
         // delete an specific order
         Order::destroy($id);
 
-        Session::flash('alert', 'Order deleted successfully.');
+        Session::flash('alert', 'Order '.$id.' deleted successfully.');
 
         return redirect()->route('order.index');
     }
