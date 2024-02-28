@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
@@ -23,7 +25,7 @@ class OrderController extends Controller
     public function show(string $id): View
     {
         // show one order
-        
+
         $viewData = [];
         $order = Order::findOrFail($id);
 
@@ -45,14 +47,29 @@ class OrderController extends Controller
         return view('order.create')->with('viewData', $viewData);
     }
 
-    public function save(): \Illuminate\Http\RedirectResponse
+    public function save(Request $request): \Illuminate\Http\RedirectResponse
     {
         // save de product and redirect the user to the homepage
+
+        $request->validate([
+            'address' => ['required'],
+            'creditCard' => ['required'],
+            'price' => ['required'],
+        ]);
+
+        $order = Order::create($request->only(['address', 'creditCard', 'price']));
+        Session::flash('success', 'Order '.$order->getId().' created successfully.');
+
         return redirect()->route('order.index');
     }
 
-    public function delete(): View
+    public function delete(string $id): \Illuminate\Http\RedirectResponse
     {
-        return view('');
+        // delete an specific order
+        Order::destroy($id);
+
+        Session::flash('alert', 'Order deleted successfully.');
+
+        return redirect()->route('order.index');
     }
 }

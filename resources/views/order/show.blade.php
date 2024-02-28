@@ -5,37 +5,44 @@
 <table class="table table-hover">
     <thead>
         <tr>
-        <th scope="col">Field</th>
-        <th scope="col">Content</th>
+            <th scope="col">Field</th>
+            <th scope="col">Content</th>
         </tr>
     </thead>
 
     <tbody>
         <tr>
             <th scope="row">Id</th>
-            <td>{{ $viewData['order']['id'] }}</td>
+            <td>{{ $viewData['order']->getId() }}</td>
         </tr>
         <tr>
             <th scope="row">Address</th>
-            <td>{{ $viewData['order']['address'] }}</td>
+            <td>{{ $viewData['order']->getAddress() }}</td>
         </tr>
         <tr>
             <th scope="row">Credit Card</th>
-            <td>{{ $viewData['order']['creditCard'] }}</td>
+            <td>{{ $viewData['order']->getCreditCard() }}</td>
         </tr>
         <tr>
             <th scope="row">Date</th>
-            <td>{{ $viewData['order']['created_at'] }}</td>
+            <td>{{ $viewData['order']->getCreated_at() }}</td>
         </tr>
         <tr>
             <th scope="row">Price</th>
-            <td>{{ $viewData['order']['price'] }}</td>
+            <td>{{ $viewData['order']->getPrice() }}</td>
         </tr>
         <tr>
             <th scope="row">Status</th>
-            <td>{{ $viewData['order']['status'] }}</td>
+            <td>{{ $viewData['order']->getStatus() }}</td>
         </tr>
 
     </tbody>
+
 </table>
+
+<form method="POST" action="{{ route('order.delete', ['id'=> $viewData['order']['id']]) }}">
+    @csrf
+    <button type="submit" class="btn btn-danger">Delete Order</button>
+</form>
+
 @endsection
