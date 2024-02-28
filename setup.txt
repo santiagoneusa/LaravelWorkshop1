@@ -20,7 +20,7 @@ To use this web application follow the instructions bellow:
 2. Then, to create orders in the database run the following command in the project directory:
     php artisan db:seed
 
-3. Finally, you can run the following command:
+3. Finally, you can run the following command in the project directory:
     php artisan serve
 
 4. Open in a browser the URL displayed in the terminal.
